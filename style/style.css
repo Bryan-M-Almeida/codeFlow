@@ -1,0 +1,143 @@
+/* ===== VARIÁVEIS ===== */
+:root {
+    --bg-color: #ffffff;
+    --bg-color-header: #b8adad;
+    --text-color: #1f2937;
+    --bg-color-btn: #0b1220;
+    --muted-text: #4b5563;
+    --button-border: #000000;
+    --link-color: #1f2937;
+    --link-hover: #2563eb;
+}
+
+.dark-mode {
+    --bg-color: #0b1220;
+    --bg-color-header: #020b1f;
+    --bg-color-btn: #ffffff;
+    --text-color: #f1f5f9;
+    --muted-text: #cbd5e1;
+    --button-border: #fff;
+    --link-color: #f1f5f9;
+    --link-hover: #60a5fa;
+}
+
+/* ===== RESET E BASE ===== */
+* {
+    color-scheme: dark;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+    background-color: var(--bg-color-header);
+    color: var(--text-color);
+    border-bottom: 1px solid var(--button-border);
+}
+
+.navbar {
+    flex: 1;
+}
+
+.nav-list {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+}
+
+.nav-list li a {
+    text-decoration: none;
+    font-weight: 500;
+    color: var(--link-color);
+    transition: color 0.3s;
+}
+
+.nav-list li a:hover {
+    color: var(--link-hover);
+}
+
+/* ===== DARK MODE TOGGLE ===== */
+.dark-mode-btn button {
+    background: var(--bg-color-btn);
+    border: 1px solid var(--button-border);
+    border-radius: 100px;
+    cursor: pointer;
+    padding: 4px;
+}
+
+.icone {
+    width: 32px;
+    height: 32px;
+    transition: filter 0.3s;
+}
+
+/* ===== APRESENTAÇÃO ===== */
+#apresentacao {
+    padding: 100px 20px;
+    text-align: center;
+}
+
+#apresentacao h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+#apresentacao p {
+    font-size: 1.25rem;
+    color: var(--muted-text);
+}
+
+a {
+    color: var(--link-font);
+}
+
+.dark-mode a {
+    color: var(--link-font);
+}
+
+footer {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    padding: 2rem 1rem;
+    border-top: 1px solid var(--button-border);
+    margin-top: 3rem;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.footer-nav {
+    margin-top: 1rem;
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem;
+    padding: 0;
+}
+
+.footer-nav li a {
+    text-decoration: none;
+    color: var(--link-color);
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.footer-nav li a:hover {
+    color: var(--link-hover);
+}
