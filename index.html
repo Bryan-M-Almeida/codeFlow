@@ -17,10 +17,8 @@
             <ul class="nav-list">
                 <li><a href="#apresentacao">Início</a></li>
                 <li><a href="#tarefas">Tarefas</a></li>
-                <li><a href="#pomodoro">Pomodoro</a></li>
+                <li><a href="#pomodoro">Estudar</a></li>
                 <li><a href="#progresso">Progresso</a></li>
-                <li><a href="#config">Configurações</a></li>
-                <li><a href="#sair">Sair</a></li>
                 <li><a href="#dashboard">Dashboard</a></li>
             </ul>
         </nav>
@@ -32,47 +30,72 @@
         </div>
     </header>
 
-    <!-- Apresentação -->
-    <section id="apresentacao">
-        <h2>🚀 CodeFlow: Organize, Foque, Execute.</h2>
-        <p>
-            Cansado de se perder entre tarefas, abas e bugs? <strong>CodeFlow</strong> é o app feito pra devs que querem
-            parar de enrolar e começar a render.<br><br>
+    <main>
+        <!-- Apresentação -->
+        <section id="apresentacao">
+            <h2>🚀 CodeFlow: Organize, Foque, Execute.</h2>
+            <p>
+                Cansado de se perder entre tarefas, abas e bugs? <strong>CodeFlow</strong> é o app feito pra devs que
+                querem
+                parar de enrolar e começar a render.<br><br>
 
-            🎯 <strong>Foco real</strong> com ciclos Pomodoro integrados<br>
-            🗂️ <strong>Organização simples</strong> por categorias (estudo, freelas, projetos)<br>
-            📊 <strong>Gráficos visuais</strong> pra acompanhar sua evolução sem drama<br>
-            🧘 <strong>Interface limpa</strong>, responsiva e sem distração<br><br>
+                🎯 <strong>Foco real</strong> com ciclos Pomodoro integrados<br>
+                🗂️ <strong>Organização simples</strong> por categorias (estudo, freelas, projetos)<br>
+                📊 <strong>Gráficos visuais</strong> pra acompanhar sua evolução sem drama<br>
+                🧘 <strong>Interface limpa</strong>, responsiva e sem distração<br><br>
 
-            Chega de usar 5 apps pra fazer o básico. O CodeFlow junta tudo em um só lugar.
-        </p>
+                Chega de usar 5 apps pra fazer o básico. O CodeFlow junta tudo em um só lugar.
+            </p>
 
-        <p style="margin-top: 2rem; font-weight: bold;">
-            👉 Quer saber mais? <a href="https://bryan-m-almeida.github.io/codeFlow-landing/" target="_blank">Acesse a
-                landing</a>
-        </p>
-    </section>
+            <p style="margin-top: 2rem; font-weight: bold;">
+                👉 Quer saber mais? <a href="https://bryan-m-almeida.github.io/codeFlow-landing/" target="_blank">Acesse
+                    a
+                    landing</a>
+            </p>
+        </section>
+        <hr>
 
-    <!-- Tarefas -->
-    <section id="tarefas">
+        <!-- Tarefas -->
+        <section id="tarefas" class="tarefas-section">
+            <div class="container">
+                <h2>Minhas Tarefas</h2>
+                <p>Adicione, visualize e organize suas tarefas diárias para manter seu foco total durante os estudos.
+                </p>
+                <form id="form-tarefa" class="form-tarefa">
+                    <input type="text" id="input-tarefa" placeholder="Digite sua tarefa" required />
+                    <button type="submit">Adicionar</button>
+                </form>
+                <ul id="lista-tarefas" class="lista-tarefas">
+                    <!-- Tarefas serão adicionadas aqui via JS -->
+                </ul>
+            </div>
+        </section>
+        <hr>
 
-    </section>
+        <!-- Pomodoro -->
+        <section id="pomodoro">
+            <h2>Método Pomodoro</h2>
+            <p>Otimize seu tempo com ciclos de foco de 25 minutos e pausas curtas. A técnica ideal pra dev que quer
+                produzir mais.</p>
+            <!-- Timer interativo em breve aqui -->
+        </section>
+        <hr>
 
-    <!-- Progresso -->
-    <section id="progresso">
+        <!-- Progresso -->
+        <section id="progresso">
+            <h2>Sua Jornada</h2>
+            <p>Acompanhe o seu progresso semanal, visualize quantas tarefas completou e mantenha-se motivado.</p>
+        </section>
+        <hr>
 
-    </section>
-
-    <!-- Pomodoro -->
-    <section id="pomodoro">
-
-    </section>
-
-    <!-- Gráficos -->
-    <section id="Dashboard">
-
-    </section>
-
+        <!-- Gráficos -->
+        <section id="dashboard">
+            <h2>Dashboard</h2>
+            <p>Visualize gráficos interativos com base em seus dados de produtividade. Use isso pra evoluir, não só pra
+                enfeitar.</p>
+            <canvas id="grafico"></canvas>
+        </section>
+    </main>
 
     <footer>
         <div class="footer-container">
@@ -85,7 +108,7 @@
             </ul>
         </div>
     </footer>
-
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="script/script.js"></script>
 </body>
 

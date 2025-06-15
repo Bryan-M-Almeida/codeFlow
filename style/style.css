@@ -1,13 +1,15 @@
 /* ===== VARIÁVEIS ===== */
 :root {
-    --bg-color: #ffffff;
-    --bg-color-header: #b8adad;
-    --text-color: #1f2937;
-    --bg-color-btn: #0b1220;
-    --muted-text: #4b5563;
-    --button-border: #000000;
-    --link-color: #1f2937;
-    --link-hover: #2563eb;
+    --bg-color: #f4f6fa;
+    --bg-color-header: #ffffff;
+    --text-color: #1e293b;
+    --bg-color-btn: #1e3a8a;
+    --muted-text: #475569;
+    --button-border: #cbd5e1;
+    --link-color: #1d4ed8;
+    --link-hover: #1e40af;
+    --bg-dash: #e2e8f0;
+    --input-bg: #ffffff;
 }
 
 .dark-mode {
@@ -19,22 +21,25 @@
     --button-border: #fff;
     --link-color: #f1f5f9;
     --link-hover: #60a5fa;
+    --bg-dash: #1f2937;
+    --input-bg: #1f2937;
 }
 
 /* ===== RESET E BASE ===== */
 * {
-    color-scheme: dark;
+    transition: 0.3s;
+    color-scheme: light dark;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     scroll-behavior: smooth;
+    text-align: center;
 }
 
 body {
     font-family: 'Segoe UI', sans-serif;
     background-color: var(--bg-color);
     color: var(--text-color);
-    transition: background-color 0.3s, color 0.3s;
 }
 
 header {
@@ -43,8 +48,8 @@ header {
     justify-content: space-between;
     padding: 1rem 2rem;
     background-color: var(--bg-color-header);
-    color: var(--text-color);
     border-bottom: 1px solid var(--button-border);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
 }
 
 .navbar {
@@ -61,14 +66,13 @@ header {
     text-decoration: none;
     font-weight: 500;
     color: var(--link-color);
-    transition: color 0.3s;
 }
 
 .nav-list li a:hover {
     color: var(--link-hover);
+    text-decoration: underline;
 }
 
-/* ===== DARK MODE TOGGLE ===== */
 .dark-mode-btn button {
     background: var(--bg-color-btn);
     border: 1px solid var(--button-border);
@@ -80,33 +84,130 @@ header {
 .icone {
     width: 32px;
     height: 32px;
-    transition: filter 0.3s;
+}
+
+/* ===== SEÇÕES GERAIS ===== */
+section {
+    margin: 2rem auto;
+    padding: 2rem;
+    max-width: 900px;
+    background: var(--bg-color-header);
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+section h1,
+section h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: var(--text-color);
+}
+
+section p {
+    font-size: 1.1rem;
+    color: var(--muted-text);
+    line-height: 1.6;
 }
 
 /* ===== APRESENTAÇÃO ===== */
-#apresentacao {
-    padding: 100px 20px;
-    text-align: center;
-}
-
-#apresentacao h1 {
-    font-size: 2.5rem;
-    margin-bottom: 20px;
+#apresentacao h2 {
+    font-size: 2.2rem;
 }
 
 #apresentacao p {
-    font-size: 1.25rem;
-    color: var(--muted-text);
+    font-size: 1.2rem;
 }
 
-a {
-    color: var(--link-font);
+/* ===== POMODORO ===== */
+#pomodoro {
+    background: var(--bg-color-header);
+    border: 2px solid #3b82f6;
 }
 
-.dark-mode a {
-    color: var(--link-font);
+#pomodoro h1 {
+    color: var(--text-color);
+    font-weight: 700;
+    margin-bottom: 1rem;
 }
 
+/* ===== PROGRESSO ===== */
+#progresso h1 {
+    font-weight: 600;
+}
+
+#progresso {
+    border: 2px solid #3b82f6;
+}
+
+/* ===== DASHBOARD/GRÁFICOS ===== */
+#grafico {
+    background-color: var(--bg-dash);
+    border-radius: 8px;
+    padding: 1rem;
+}
+
+#dashboard {
+    width: 60%;
+    margin: 0 auto;
+}
+
+/* ===== TAREFAS ===== */
+.tarefas-section h2 {
+    margin-bottom: 1rem;
+}
+
+.form-tarefa {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+    justify-content: center;
+}
+
+.form-tarefa input {
+    flex: 1;
+    padding: 0.75rem;
+    border: 1px solid var(--button-border);
+    border-radius: 4px;
+    background-color: var(--input-bg);
+    color: var(--text-color);
+}
+
+.form-tarefa button {
+    padding: 0.75rem 1rem;
+    background-color: #3b82f6;
+    border: none;
+    color: #fff;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.form-tarefa button:hover {
+    background-color: #2563eb;
+}
+
+.lista-tarefas {
+    list-style: none;
+    padding: 0;
+}
+
+.lista-tarefas li {
+    padding: 0.75rem;
+    background-color: var(--input-bg);
+    margin-bottom: 0.5rem;
+    border-radius: 4px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--text-color);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.dark-mode .lista-tarefas li {
+    background-color: #1f2937;
+    color: #f1f5f9;
+}
+
+/* ===== FOOTER ===== */
 footer {
     background-color: var(--bg-color);
     color: var(--text-color);
@@ -135,9 +236,13 @@ footer {
     text-decoration: none;
     color: var(--link-color);
     font-weight: 500;
-    transition: color 0.3s;
 }
 
 .footer-nav li a:hover {
     color: var(--link-hover);
+    text-decoration: underline;
+}
+
+hr {
+    margin: 5% 0 5% 0;
 }
