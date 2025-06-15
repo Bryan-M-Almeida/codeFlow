@@ -1,0 +1,30 @@
+/* ===== DARK MODE ===== */
+.dark-mode {
+    --bg-color: #0b1220;
+    --bg-color-header: #020b1f;
+    --bg-color-btn: #ffffff;
+    --text-color: #f1f5f9;
+    --muted-text: #cbd5e1;
+    --button-border: #fff;
+    --link-color: #f1f5f9;
+    --link-hover: #60a5fa;
+    --bg-dash: #1f2937;
+    --input-bg: #1f2937;
+    --bg-btn: #0c3679;
+    --bg-btn-hover: #082258;
+    --color-btn: black;
+}
+
+/* ===== DARK MODE BUTTON ===== */
+.dark-mode-btn button {
+    background: var(--bg-color-btn);
+    border: 1px solid var(--button-border);
+    border-radius: 100px;
+    cursor: pointer;
+    padding: 4px;
+}
+
+.icone {
+    width: 32px;
+    height: 32px;
+}

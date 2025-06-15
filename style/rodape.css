@@ -1,0 +1,34 @@
+/* ===== FOOTER ===== */
+footer {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    padding: 2rem 1rem;
+    border-top: 1px solid var(--button-border);
+    margin-top: 3rem;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.footer-nav {
+    margin-top: 1rem;
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem;
+    padding: 0;
+}
+
+.footer-nav li a {
+    text-decoration: none;
+    color: var(--link-color);
+    font-weight: 500;
+}
+
+.footer-nav li a:hover {
+    color: var(--link-hover);
+}

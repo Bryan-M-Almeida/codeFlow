@@ -1,0 +1,74 @@
+/* ===== TAREFAS ===== */
+.tarefas-section h2 {
+    margin-bottom: 1rem;
+}
+
+.form-tarefa {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+    justify-content: center;
+}
+
+.form-tarefa input {
+    flex: 1;
+    padding: 0.75rem;
+    border: 1px solid var(--button-border);
+    border-radius: 4px;
+    background-color: var(--input-bg);
+    color: var(--text-color);
+}
+
+.form-tarefa button {
+    padding: 0.75rem 1rem;
+    background-color: var(--bg-btn);
+    border: none;
+    color: #fff;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.form-tarefa button:hover {
+    background-color: var(--bg-btn-hover);
+}
+
+.lista-tarefas {
+    list-style: none;
+    padding: 0;
+}
+
+.lista-tarefas li {
+    padding: 0.75rem;
+    background-color: var(--input-bg);
+    margin-bottom: 0.5rem;
+    border-radius: 4px;
+    display: flex;
+    font-size: 1.6em;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--text-color);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.dark-mode .lista-tarefas li {
+    background-color: #1f2937;
+    color: #f1f5f9;
+}
+
+.lista-tarefas button {
+    color: red;
+    cursor: pointer;
+    padding: 8px;
+    background-color: var(--bg-btn);
+    border-radius: 10px;
+}
+
+.lista-tarefas button:hover {
+    background-color: var(--bg-btn-hover);
+}
+
+/* ===== TAREFA MARCADA COMO FEITA ===== */
+.clicado span {
+    text-decoration: line-through;
+    opacity: 0.6;
+}

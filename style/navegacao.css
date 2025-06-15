@@ -1,0 +1,50 @@
+/* ===== HEADER & NAV ===== */
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+    background-color: var(--bg-color-header);
+    border-bottom: 1px solid var(--button-border);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.header-top {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar {
+    flex: 1;
+}
+
+.nav-list {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+}
+
+.nav-list li a {
+    text-decoration: none;
+    font-weight: 500;
+    color: var(--link-color);
+}
+
+.nav-list li a:hover {
+    color: var(--link-hover);
+}
+
+.menu-toggle {
+    display: none;
+    font-size: 2rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--text-color);
+}

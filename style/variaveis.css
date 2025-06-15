@@ -1,0 +1,16 @@
+/* ===== VARIÁVEIS ===== */
+:root {
+    --bg-color: #f4f6fa;
+    --bg-color-header: #ffffff;
+    --text-color: #1e293b;
+    --bg-color-btn: #1e3a8a;
+    --muted-text: #475569;
+    --button-border: #cbd5e1;
+    --link-color: #1d4ed8;
+    --link-hover: #1e40af;
+    --bg-dash: #e2e8f0;
+    --input-bg: #ffffff;
+    --bg-btn: #3b82f6;
+    --bg-btn-hover: #2563eb;
+    --color-btn: black;
+}

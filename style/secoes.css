@@ -1,0 +1,70 @@
+/* ===== SEÇÕES ===== */
+section {
+    margin: 2rem auto;
+    padding: 2rem;
+    max-width: 900px;
+    background: var(--bg-color-header);
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    border: 2px solid var(--bg-btn);
+    /* usada no pomodoro tbm */
+}
+
+section h1,
+section h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: var(--text-color);
+}
+
+section p {
+    font-size: 1.1rem;
+    color: var(--muted-text);
+    line-height: 1.6;
+}
+
+/* ===== APRESENTAÇÃO ===== */
+#apresentacao h2 {
+    font-size: 2.2rem;
+}
+
+#apresentacao p {
+    font-size: 1.2rem;
+}
+
+/* ===== POMODORO ===== */
+#pomodoro h1 {
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+#pomodoro button {
+    padding: 10px;
+    background-color: var(--bg-btn);
+    color: var(--muted-text);
+    cursor: pointer;
+    border: 1px solid var(--button-border);
+    border-radius: 5px;
+}
+
+#pomodoro button:hover {
+    background-color: var(--bg-btn-hover);
+}
+
+/* ===== PROGRESSO ===== */
+#progresso h1 {
+    font-weight: 600;
+}
+
+/* ===== DASHBOARD/GRÁFICOS ===== */
+#grafico,
+#progresso-grafico {
+    background-color: var(--bg-dash);
+    border-radius: 8px;
+    padding: 1rem;
+}
+
+#dashboard {
+    width: 60%;
+    margin: 0 auto;
+}

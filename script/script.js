@@ -1,15 +1,19 @@
-const btnMode = document.querySelector('#dark-mode-btn')
-const img = document.querySelector('.icone')
+const menuToggle = document.querySelector('.menu-toggle');
+const navList = document.querySelector('.nav-list');
 
-btnMode.addEventListener('click', function () {
-    if (img.src.includes('branco.png')) {
-        img.src = 'assets/preto.png'
-    } else {
-        img.src = 'assets/branco.png'
-    }
+menuToggle.addEventListener('click', () => {
+    navList.classList.toggle('open');
+});
 
-    document.body.classList.toggle('dark-mode')
-})
+const darkBtn = document.getElementById('dark-mode-btn');
+const img = darkBtn.querySelector('img');
+
+darkBtn.addEventListener('click', () => {
+    document.body.classList.toggle('dark-mode');
+    img.src = document.body.classList.contains('dark-mode')
+        ? 'assets/preto.png'
+        : 'assets/branco.png';
+});
 
 let estudo = document.querySelector('#inputEstudos');
 let freela = document.querySelector('#inputFreela');
@@ -25,16 +29,32 @@ form.addEventListener('submit', (e) => {
     if (input.value.trim() === '') return;
 
     const li = document.createElement('li');
-    li.textContent = input.value;
 
+    // cria um span separado só pro texto
+    const spanTexto = document.createElement('span');
+    spanTexto.textContent = input.value;
+
+    // botão de remover
     const btnRemover = document.createElement('button');
     btnRemover.textContent = '✖';
     btnRemover.style.marginLeft = '1rem';
-    btnRemover.onclick = () => li.remove();
+    btnRemover.onclick = (event) => {
+        event.stopPropagation(); // evita riscar ao clicar no botão
+        li.remove();
+    };
 
+    // adiciona o texto e o botão no li
+    li.appendChild(spanTexto);
     li.appendChild(btnRemover);
+
+    // evento pra riscar o texto quando clicar no li
+    li.addEventListener("click", function () {
+        li.classList.toggle('clicado');
+    });
+
     lista.appendChild(li);
     input.value = '';
+
 });
 
 // ==== Pomodoro Timer ====
@@ -95,14 +115,37 @@ updateDisplay();
 
 
 // ==== Gráfico de Progresso ====
+const pgx = document.getElementById('progresso-grafico').getContext('2d');
+const progressoGrafico = new Chart(pgx, {
+    type: 'bar',
+    data: {
+        labels: ['Tarefas', 'Tempo de Estudo'],
+        datasets: [{
+            label: 'Minutos focados',
+            data: [0],
+            backgroundColor: 'rgba(59, 130, 246, 0.6)',
+            borderColor: 'rgba(59, 130, 246, 1)',
+            borderWidth: 1,
+        }]
+    },
+    options: {
+        scales: {
+            y: {
+                beginAtZero: true
+            }
+        }
+    }
+});
+
+// ==== Gráfico total ====
 const ctx = document.getElementById('grafico').getContext('2d');
 const grafico = new Chart(ctx, {
     type: 'bar',
     data: {
-        labels: ['Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb', 'Dom'],
+        labels: ['Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado', 'Domingo'],
         datasets: [{
             label: 'Minutos focados',
-            data: [25, 50, 35, 45, 60, 30, 20],
+            data: [0],
             backgroundColor: 'rgba(59, 130, 246, 0.6)',
             borderColor: 'rgba(59, 130, 246, 1)',
             borderWidth: 1,

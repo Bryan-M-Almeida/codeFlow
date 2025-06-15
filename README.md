@@ -18,8 +18,6 @@
 
 ## 📸 Preview
 
-![CodeFlow Mockup](https://via.placeholder.com/800x450/2563eb/ffffff?text=CodeFlow+App+Preview)
-
 ---
 
 ## 🧠 Tecnologias Usadas

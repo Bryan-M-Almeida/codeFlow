@@ -13,22 +13,26 @@
 
 <body>
     <header>
+        <div class="header-top">
+            <button class="menu-toggle">☰</button>
+            <div class="dark-mode-btn">
+                <button id="dark-mode-btn">
+                    <img src="assets/branco.png" class="icone" alt="Toggle Dark Mode" />
+                </button>
+            </div>
+        </div>
+
         <nav class="navbar">
             <ul class="nav-list">
-                <li><a href="#apresentacao">Início</a></li>
+                <li><a href="#">Início</a></li>
                 <li><a href="#tarefas">Tarefas</a></li>
-                <li><a href="#pomodoro">Estudar</a></li>
+                <li><a href="#estudar">Estudar</a></li>
                 <li><a href="#progresso">Progresso</a></li>
                 <li><a href="#dashboard">Dashboard</a></li>
             </ul>
         </nav>
-
-        <div class="dark-mode-btn">
-            <button id="dark-mode-btn">
-                <img src="assets/branco.png" class="icone" alt="Toggle Dark Mode" />
-            </button>
-        </div>
     </header>
+
 
     <main>
         <!-- Apresentação -->
@@ -61,7 +65,7 @@
                 <h2>Minhas Tarefas</h2>
                 <p>Adicione, visualize e organize suas tarefas diárias para manter seu foco total durante os estudos.
                 </p>
-                <form id="form-tarefa" class="form-tarefa">
+                <form id="form-tarefa" class="form-tarefa" autocomplete="off">
                     <input type="text" id="input-tarefa" placeholder="Digite sua tarefa" required />
                     <button type="submit">Adicionar</button>
                 </form>
@@ -85,12 +89,13 @@
         <section id="progresso">
             <h2>Sua Jornada</h2>
             <p>Acompanhe o seu progresso semanal, visualize quantas tarefas completou e mantenha-se motivado.</p>
+            <canvas id="progresso-grafico"></canvas>
         </section>
         <hr>
 
-        <!-- Gráficos -->
+        <!-- Gráfico -->
         <section id="dashboard">
-            <h2>Dashboard</h2>
+            <h2>Gráfico</h2>
             <p>Visualize gráficos interativos com base em seus dados de produtividade. Use isso pra evoluir, não só pra
                 enfeitar.</p>
             <canvas id="grafico"></canvas>
@@ -102,7 +107,6 @@
             <p>&copy; 2025 CodeFlow. Organize seu tempo, foque e execute.</p>
             <ul class="footer-nav">
                 <li><a href="#dashboard">Dashboard</a></li>
-                <li><a href="#config">Configurações</a></li>
                 <li><a href="https://github.com/Bryan-M-Almeida/codeFlow" target="_blank"
                         rel="noopener noreferrer">GitHub</a></li>
             </ul>
