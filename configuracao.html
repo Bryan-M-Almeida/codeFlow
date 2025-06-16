@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Configurações</title>
+    <link rel="stylesheet" href="style/style.css">
+</head>
+
+<body id="configuracao">
+    <header>
+        <div class="header-top">
+            <button class="menu-toggle">☰</button>
+            <div class="dark-mode-btn">
+                <button id="dark-mode-btn">
+                    <img src="assets/branco.png" class="icone" alt="Toggle Dark Mode" />
+                </button>
+            </div>
+        </div>
+
+        <nav class="navbar">
+            <ul class="nav-list">
+                <li><a href="index.html#">Início</a></li>
+                <li><a href="index.html#tarefas">Tarefas</a></li>
+                <li><a href="index.html#estudar">Estudar</a></li>
+                <li><a href="index.html#progresso">Progresso</a></li>
+                <li><a href="index.html#dashboard">Total</a></li>
+                <li><a href="index.html#dashboard">Histórico</a></li>
+                <li><a href="#">Configurações</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="tema">
+        <h2>Tema</h2>
+        <label>
+            <input type="checkbox" id="toggle-tema" />
+            Ativar modo escuro
+        </label>
+    </section>
+
+    <section id="pomodoro-config">
+        <h2>Configurar Pomodoro</h2>
+        <form>
+            <label>Tempo de foco (min): <input type="number" id="tempo-foco" value="25" /></label><br>
+            <label>Tempo de pausa (min): <input type="number" id="tempo-pausa" value="5" /></label><br>
+            <button type="submit">Salvar</button>
+        </form>
+    </section>
+
+
+    <section id="notificacoes">
+        <h2>Notificações</h2>
+        <label>
+            <input type="checkbox" checked />
+            Receber alertas sonoros no fim do Pomodoro
+        </label>
+    </section>
+
+    <section id="reset-dados">
+        <h2>Gerenciar Dados</h2>
+        <button id="resetar">Resetar Progresso</button>
+    </section>
+
+    <section id="usuario">
+        <h2>Seu nome</h2>
+        <input type="text" id="nomeUsuario" placeholder="Digite seu nome" />
+        <button onclick="salvarNome()">Salvar</button>
+    </section>
+
+    <script src="script/darkMode.js"></script>
+</body>
+
+</html>

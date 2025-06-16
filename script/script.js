@@ -5,16 +5,6 @@ menuToggle.addEventListener('click', () => {
     navList.classList.toggle('open');
 });
 
-const darkBtn = document.getElementById('dark-mode-btn');
-const img = darkBtn.querySelector('img');
-
-darkBtn.addEventListener('click', () => {
-    document.body.classList.toggle('dark-mode');
-    img.src = document.body.classList.contains('dark-mode')
-        ? 'assets/preto.png'
-        : 'assets/branco.png';
-});
-
 let estudo = document.querySelector('#inputEstudos');
 let freela = document.querySelector('#inputFreela');
 let projetos = document.querySelector('#inputProjeto');
