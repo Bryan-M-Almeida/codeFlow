@@ -2,9 +2,9 @@
 :root {
     --bg-color: #f4f6fa;
     --bg-color-header: #ffffff;
-    --text-color: #1e293b;
+    --text-color: #000000;
     --bg-color-btn: #1e3a8a;
-    --muted-text: #475569;
+    --muted-text: #000000;
     --button-border: #cbd5e1;
     --link-color: #1d4ed8;
     --link-hover: #1e40af;
