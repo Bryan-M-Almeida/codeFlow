@@ -1,5 +1,4 @@
 document.addEventListener("DOMContentLoaded", () => {
-
     /* Tarefas */
     const form = document.getElementById('form-tarefa');
     const input = document.getElementById('input-tarefa');
@@ -95,7 +94,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const historicoTimer = document.querySelector('#historico-timer');
     const historicoTimerHoras = document.querySelector('#historico-timer-horas');
     const cicloDisplay = document.querySelector('#ciclos');
-    const pausaDisplay = document.querySelector('#pausas-historico')
+    const pausaDisplay = document.querySelector('#pausas-historico');
+    const displayUltima = document.getElementById('ultima-execucao');
 
     // Botões de controle
     const controls = document.createElement('div');
@@ -104,27 +104,49 @@ document.addEventListener("DOMContentLoaded", () => {
     <button id="pause">Pausar</button>
     <button id="reset">Resetar</button>
 `;
-
-    // Elementos adicionados à tela
-    timerDisplay.textContent = '25:00';
     pomodoroSection.appendChild(timerDisplay);
     pomodoroSection.appendChild(controls);
 
-    // Mutáveis
-    let time = 25 * 60;
-    let isRunning = false;
+    // Tempo padrão
+    const defaultTime = 25 * 60;
+
+    // Recuperar dados salvos
+    let time = parseInt(localStorage.getItem('time')) || defaultTime;
+    let isRunning = JSON.parse(localStorage.getItem('isRunning')) || false;
+    let dataTimer = parseInt(localStorage.getItem('dataTimer')) || 0;
+    let ciclos = parseInt(localStorage.getItem('ciclos')) || 0;
+    let pausas = parseInt(localStorage.getItem('pausas')) || 0;
+    let timerHoras = parseFloat(localStorage.getItem('timerHoras')) || 0;
+    let startTimestamp = parseInt(localStorage.getItem('startTimestamp')) || null;
+    let ultimaExecucao = localStorage.getItem('ultimaExecucao') || '--';
+
     let interval;
-    let dataTimer = 0;
-    let ciclos = 0;
-    let pausas = 0;
 
-    // Singular ou plural
-    let contador = (ciclos > 1) ? "Ciclos" : "ciclo";
+    // dados anteriores
+    historicoTimer.innerHTML = `${dataTimer} Minutos de estudos`;
+    cicloDisplay.innerHTML = `${ciclos} ${(ciclos > 1) ? "Ciclos" : "ciclo"}`;
+    pausaDisplay.innerHTML = pausas;
+    historicoTimerHoras.innerHTML = formatarHorasEMinutos(timerHoras);
+    displayUltima.textContent = `Último ciclo: ${ultimaExecucao}`;
 
-    // Tempo em horas
-    let timerHoras = 0;
+    // formatar decimal de horas
+    function formatarHorasEMinutos(valorDecimal) {
+        const horas = Math.floor(valorDecimal);
+        const minutos = Math.round((valorDecimal - horas) * 60);
+        return `${horas}h ${minutos}min`;
+    }
 
-    pomodoroSection.appendChild(controls);
+    // salvar progresso
+    function salvarProgresso() {
+        localStorage.setItem('time', time);
+        localStorage.setItem('isRunning', JSON.stringify(isRunning));
+        localStorage.setItem('dataTimer', dataTimer);
+        localStorage.setItem('ciclos', ciclos);
+        localStorage.setItem('pausas', pausas);
+        localStorage.setItem('timerHoras', timerHoras);
+        localStorage.setItem('startTimestamp', startTimestamp);
+        localStorage.setItem('ultimaExecucao', ultimaExecucao);
+    }
 
     function updateDisplay() {
         const minutes = String(Math.floor(time / 60)).padStart(2, '0');
@@ -132,56 +154,100 @@ document.addEventListener("DOMContentLoaded", () => {
         timerDisplay.textContent = `${minutes}:${seconds}`;
     }
 
+    function retomarTimer() {
+        const agora = Date.now();
+        const tempoPassado = Math.floor((agora - startTimestamp) / 1000);
+        time -= tempoPassado;
+
+        if (time <= 0) {
+            time = 0;
+            isRunning = false;
+            finalizarPomodoro();
+            return;
+        }
+
+        updateDisplay();
+        interval = setInterval(() => {
+            if (time > 0) {
+                time--;
+                updateDisplay();
+            } else {
+                finalizarPomodoro();
+            }
+        }, 1000);
+    }
+
+    if (isRunning && startTimestamp) {
+        retomarTimer();
+    }
+
+    updateDisplay();
+
+    function finalizarPomodoro() {
+        clearInterval(interval);
+        alert("Pomodoro finalizado!");
+
+        dataTimer += 25;
+        ciclos++;
+        timerHoras += 25 / 60;
+        ultimaExecucao = new Date().toLocaleString("pt-BR");
+
+        historicoTimer.innerHTML = `${dataTimer} Minutos de estudos`;
+        cicloDisplay.innerHTML = `${ciclos} ${(ciclos > 1) ? "Ciclos" : "ciclo"}`;
+        historicoTimerHoras.innerHTML = formatarHorasEMinutos(timerHoras);
+        displayUltima.textContent = `Último ciclo: ${ultimaExecucao}`;
+
+        time = defaultTime;
+        isRunning = false;
+        startTimestamp = null;
+        salvarProgresso();
+        updateDisplay();
+    }
 
     function startTimer() {
         if (!isRunning) {
             isRunning = true;
+            startTimestamp = Date.now();
             interval = setInterval(() => {
                 if (time > 0) {
                     time--;
                     updateDisplay();
                 } else {
-                    clearInterval(interval);
-                    alert("Pomodoro finalizado!");
-
-                    dataTimer += 25;
-                    ciclos++;
-                    timerHoras += 25 / 60
-
-                    historicoTimer.innerHTML = `${dataTimer} Minutos de estudos`;
-                    cicloDisplay.innerHTML = `${ciclos} ${contador}`;
-
-                    if (dataTimer > 59 && ciclos > 2) {
-                        historicoTimerHoras.innerHTML = timerHoras.toFixed(2);
-                    }
-
-                    isRunning = false;
-                    time = 25 * 60;
-                    updateDisplay();
+                    finalizarPomodoro();
                 }
             }, 1000);
+            salvarProgresso();
         }
     }
 
 
     function pauseTimer() {
-        pausas++;
-        pausaDisplay.innerHTML = pausas;
-        clearInterval(interval);
-        isRunning = false;
+        if (isRunning) {
+            clearInterval(interval);
+            const agora = Date.now();
+
+            isRunning = false;
+            startTimestamp = null;
+            pausas++;
+            pausaDisplay.innerHTML = pausas;
+            salvarProgresso();
+            updateDisplay();
+        }
     }
 
     function resetTimer() {
         clearInterval(interval);
-        time = 25 * 60;
+        time = defaultTime;
         isRunning = false;
+        startTimestamp = null;
+        salvarProgresso();
         updateDisplay();
     }
 
     document.getElementById('start').addEventListener('click', startTimer);
     document.getElementById('pause').addEventListener('click', pauseTimer);
     document.getElementById('reset').addEventListener('click', resetTimer);
-    updateDisplay();
+
 
     // ==== Gráfico de Progresso ====
     const pgxCanvas = document.getElementById('progresso-grafico');
