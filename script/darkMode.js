@@ -31,4 +31,13 @@ document.addEventListener("DOMContentLoaded", function () {
             img.src = darkModeAtivado ? 'assets/preto.png' : 'assets/branco.png';
         }
     }
+    // ==== Menu Responsivo ====
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navList = document.querySelector('.nav-list');
+
+    if (menuToggle && navList) {
+        menuToggle.addEventListener('click', () => {
+            navList.classList.toggle('open');
+        });
+    }
 });
