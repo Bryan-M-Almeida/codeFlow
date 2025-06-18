@@ -120,7 +120,7 @@ document.addEventListener("DOMContentLoaded", () => {
     pomodoroSection.appendChild(controls);
 
     // Mutáveis
-    let time = 1 * 1;
+    let time = 25 * 60;
     let isRunning = false;
     let interval;
     let dataTimer = 0;
@@ -165,7 +165,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     }
 
                     isRunning = false;
-                    time = 1 * 1;
+                    time = 25 * 60;
                     updateDisplay();
                 }
             }, 1000);
@@ -182,7 +182,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function resetTimer() {
         clearInterval(interval);
-        time = 1 * 1;
+        time = 25 * 60;
         isRunning = false;
         updateDisplay();
     }
