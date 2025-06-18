@@ -84,6 +84,11 @@
         align-items: flex-start;
         gap: 0.5rem;
     }
+    .lista-tarefas button{
+        align-self: end;
+        position: relative;
+        bottom: 15px;
+    }
 }
 
 @media (max-width: 480px) {
