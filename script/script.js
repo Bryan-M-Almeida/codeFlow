@@ -4,6 +4,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const input = document.getElementById('input-tarefa');
     const lista = document.getElementById('lista-tarefas');
 
+    let tarefasFeitas = 0;
+
     function salvarTarefas() {
         const tarefas = [];
         document.querySelectorAll('#lista-tarefas li').forEach((li) => {
@@ -224,7 +226,6 @@ document.addEventListener("DOMContentLoaded", () => {
     function pauseTimer() {
         if (isRunning) {
             clearInterval(interval);
-            const agora = Date.now();
 
             isRunning = false;
             startTimestamp = null;
@@ -234,6 +235,7 @@ document.addEventListener("DOMContentLoaded", () => {
             updateDisplay();
         }
     }
+
 
     function resetTimer() {
         clearInterval(interval);
@@ -248,7 +250,6 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById('pause').addEventListener('click', pauseTimer);
     document.getElementById('reset').addEventListener('click', resetTimer);
 
-
     // ==== Gráfico de Progresso ====
     const pgxCanvas = document.getElementById('progresso-grafico');
     if (pgxCanvas) {
@@ -256,13 +257,13 @@ document.addEventListener("DOMContentLoaded", () => {
         new Chart(pgx, {
             type: 'bar',
             data: {
-                labels: ['Tarefas', 'Tempo de Estudo'],
+                labels: ['Tempo de Estudo (Em minutos)', 'Tarefas'],
                 datasets: [{
-                    label: 'Minutos focados',
-                    data: [0],
-                    backgroundColor: 'rgba(59, 130, 246, 0.6)',
-                    borderColor: 'rgba(59, 130, 246, 1)',
-                    borderWidth: 1,
+                    label: ['Progresso'],
+                    data: [time / 60, tarefasFeitas],
+                    backgroundColor: ['rgba(59, 130, 246, 0.6)', 'red'],
+                    borderColor: 'rgb(0, 0, 0)',
+                    borderWidth: 1.5
                 }]
             },
             options: {
@@ -272,32 +273,5 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
     }
-
-    // ==== Gráfico Total ====
-    const ctxCanvas = document.getElementById('grafico');
-    if (ctxCanvas) {
-        const ctx = ctxCanvas.getContext('2d');
-        new Chart(ctx, {
-            type: 'bar',
-            data: {
-                labels: ['Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado', 'Domingo'],
-                datasets: [{
-                    label: 'Minutos focados',
-                    data: [0],
-                    backgroundColor: 'rgba(59, 130, 246, 0.6)',
-                    borderColor: 'rgba(59, 130, 246, 1)',
-                    borderWidth: 1,
-                }]
-            },
-            options: {
-                scales: {
-                    y: { beginAtZero: true }
-                }
-            }
-        });
-    }
-
-
-
 
 });
