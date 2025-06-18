@@ -11,60 +11,57 @@
         type="image/x-icon">
 </head>
 
-<body id="configuracao">
-    <header>
-        <div class="header-top">
-            <button class="menu-toggle">☰</button>
-            <div class="dark-mode-btn">
-                <button id="dark-mode-btn">
-                    <img src="assets/branco.png" class="icone" alt="Toggle Dark Mode" />
-                </button>
+<body>
+    <main id="configuracao">
+        
+        <header>
+            <div class="header-top">
+                <button class="menu-toggle">☰</button>
+                <div class="dark-mode-btn">
+                    <button id="dark-mode-btn">
+                        <img src="assets/branco.png" class="icone" alt="Toggle Dark Mode" />
+                    </button>
+                </div>
             </div>
-        </div>
-
-        <nav class="navbar">
-            <ul class="nav-list">
-                <li><a href="index.html#">Início</a></li>
-                <li><a href="index.html#tarefas">Tarefas</a></li>
-                <li><a href="index.html#estudar">Estudar</a></li>
-                <li><a href="index.html#progresso">Progresso</a></li>
-                <li><a href="index.html#dashboard">Total</a></li>
-                <li><a href="index.html#dashboard">Histórico</a></li>
-                <li><a href="#">Configurações</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <section id="tema">
-        <h2>Tema</h2>
-        <label>
-            <input type="checkbox" id="toggle-tema" />
-            Ativar modo escuro
-        </label>
-    </section>
-
-    <section id="notificacoes">
-        <h2>Notificações</h2>
-        <label>
-            <input type="checkbox" checked />
-            Receber alertas sonoros no fim do Pomodoro
-        </label>
-    </section>
-
-    <section id="reset-dados">
-        <h2>Gerenciar Dados</h2>
-        <button id="resetar">Resetar Progresso</button>
-    </section>
-
-    <section id="usuario">
-        <h2>Seu nome</h2>
-        <input type="text" id="nomeUsuario" placeholder="Digite seu nome" />
-        <button onclick="salvarNome()">Salvar</button>
-    </section>
-
-    <script src="script/darkMode.js"></script>
-    <script src="script/config.js"></script>
-    <script src="script/timer.js"></script>
+            <nav class="navbar">
+                <ul class="nav-list">
+                    <li><a href="index.html#">Início</a></li>
+                    <li><a href="index.html#tarefas">Tarefas</a></li>
+                    <li><a href="index.html#estudar">Estudar</a></li>
+                    <li><a href="index.html#progresso">Progresso</a></li>
+                    <li><a href="index.html#dashboard">Total</a></li>
+                    <li><a href="index.html#dashboard">Histórico</a></li>
+                    <li><a href="#">Configurações</a></li>
+                </ul>
+            </nav>
+        </header>
+        <section id="tema">
+            <h2>Tema</h2>
+            <label>
+                <input type="checkbox" id="toggle-tema" />
+                Ativar modo escuro
+            </label>
+        </section>
+        <section id="notificacoes">
+            <h2>Notificações</h2>
+            <label>
+                <input type="checkbox" checked />
+                Receber alertas sonoros no fim do Pomodoro
+            </label>
+        </section>
+        <section id="reset-dados">
+            <h2>Gerenciar Dados</h2>
+            <button id="resetar">Resetar Progresso</button>
+        </section>
+        <section id="usuario">
+            <h2>Seu nome</h2>
+            <input type="text" id="nomeUsuario" placeholder="Digite seu nome" />
+            <button onclick="salvarNome()">Salvar</button>
+        </section>
+        <script src="script/darkMode.js"></script>
+        <script src="script/config.js"></script>
+        <script src="script/timer.js"></script>
+    </main>
 </body>
 
 </html>
