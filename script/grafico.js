@@ -1,5 +1,4 @@
 document.addEventListener("DOMContentLoaded", () => {
-    // Tenta esperar os dados estarem disponíveis
     function tentarCriarGrafico(retries = 10) {
         if (
             window.dadosPomodoro &&

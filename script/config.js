@@ -16,8 +16,6 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-
-
     if (!inputNotification || !explicacao) return;
 
     const estado = Notification.permission;
@@ -65,7 +63,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
-// 🔔 Função global de notificação
 function notificarUsuario(titulo = "Pomodoro", mensagem = "Hora de fazer uma pausa!") {
     const ativado = localStorage.getItem('notificacoesAtivas') !== 'false';
     if (ativado && Notification.permission === "granted") {

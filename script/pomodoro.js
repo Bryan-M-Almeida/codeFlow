@@ -1,5 +1,9 @@
 const somAlarme = new Audio("assets/alarme.ogg");
 
+// ==== Permissões & Sons ====
+if (Notification.permission !== "granted") {
+    Notification.requestPermission();
+}
 // ==== Elementos DOM ====
 const pomodoroSection = document.getElementById('pomodoro');
 const historicoTimer = document.querySelector('#historico-timer');
@@ -39,6 +43,7 @@ cicloDisplay.innerHTML = `${ciclos} ${(ciclos > 1) ? "Ciclos" : "ciclo"}`;
 pausaDisplay.innerHTML = pausas;
 historicoTimerHoras.innerHTML = formatarHorasEMinutos(timerHoras);
 displayUltima.textContent = `Último ciclo: ${ultimaExecucao}`;
+
 
 // ==== Funções Auxiliares ====
 function formatarHorasEMinutos(decimal) {
@@ -111,10 +116,6 @@ function finalizarPomodoro() {
 }
 
 function startTimer() {
-    // ==== Permissões & Sons ====
-    if (Notification.permission !== "granted") {
-        Notification.requestPermission();
-    }
     if (!isRunning) {
         isRunning = true;
         startTimestamp = Date.now();
